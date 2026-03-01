@@ -1,24 +1,39 @@
-node {
+pipeline {
+    agent any
 
-    stage('Checkout') {
-        echo "Cloning repository..."
-        checkout scm
+    stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'echo Building project...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'echo Testing project...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                bat 'echo Deploying project...'
+            }
+        }
     }
 
-    stage('Build') {
-        echo "Building project..."
-        bat 'echo Build stage running'
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
     }
-
-    stage('Test') {
-        echo "Testing project..."
-        bat 'echo Test stage running'
-    }
-
-    stage('Deploy') {
-        echo "Deploying project..."
-        bat 'echo Deploy stage running'
-    }
-
-    echo "Pipeline completed successfully!"
 }
