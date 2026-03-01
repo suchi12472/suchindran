@@ -1,6 +1,6 @@
-puclic class sanjay{
-    public statis void main(string() args)
+public class sanjay{
+    public static void main(String[] args)
     {
-        system.out.print("hello");
+        System.out.print("hello");
     }
 }
