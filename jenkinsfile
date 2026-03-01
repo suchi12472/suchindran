@@ -1,0 +1,24 @@
+node {
+
+    stage('Checkout') {
+        echo "Cloning repository..."
+        checkout scm
+    }
+
+    stage('Build') {
+        echo "Building project..."
+        bat 'echo Build stage running'
+    }
+
+    stage('Test') {
+        echo "Testing project..."
+        bat 'echo Test stage running'
+    }
+
+    stage('Deploy') {
+        echo "Deploying project..."
+        bat 'echo Deploy stage running'
+    }
+
+    echo "Pipeline completed successfully!"
+}
